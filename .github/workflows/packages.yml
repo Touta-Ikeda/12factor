@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  ACCOUNT_NAME: '<ACCOUNT_NAME>' # GitHubのアカウント名を入れてください
+  ACCOUNT_NAME: 'Touta-Ikeda' # GitHubのアカウント名を入れてください
 
 jobs:
   publish-nuget:
@@ -33,4 +33,3 @@ jobs:
         dotnet nuget add source --username ${{ env.ACCOUNT_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ env.ACCOUNT_NAME }}/index.json"
         dotnet nuget push bin/Release/12FactorAppLibrarySample.*.nupkg --source "github"
       working-directory: ./TFApp_library
-      
